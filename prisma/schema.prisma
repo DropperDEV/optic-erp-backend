@@ -14,13 +14,14 @@ datasource db {
 }
 
 model Customer {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  phone     String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Orders    Order[]
+  id          String        @id @default(uuid())
+  name        String
+  email       String        @unique
+  phone       String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  Orders      Order[]
+  Appointment Appointment[]
 }
 
 model User {
@@ -71,4 +72,14 @@ model Payment {
   createdAt DateTime @default(now())
 
   invoice Invoice @relation(fields: [invoiceId], references: [id])
+}
+
+model Appointment {
+  id         String   @id @default(uuid())
+  customerId String
+  date       DateTime
+  status     String   @default("scheduled")
+  createdAt  DateTime @default(now())
+
+  customer Customer @relation(fields: [customerId], references: [id])
 }
