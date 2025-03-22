@@ -9,9 +9,10 @@ import { OrdersModule } from './orders/orders.module';
 import { InvoicesModule } from './invoices/invoices.module';
 import { PaymentModule } from './payment/payment.module';
 import { PaymentsModule } from './payments/payments.module';
+import { AppointmentsModule } from './appointments/appointments.module';
 
 @Module({
-  imports: [CustomersModule, AuthModule, ConfigModule.forRoot(), ProductsModule, OrdersModule, InvoicesModule, PaymentModule, PaymentsModule],
+  imports: [CustomersModule, AuthModule, ConfigModule.forRoot(), ProductsModule, OrdersModule, InvoicesModule, PaymentModule, PaymentsModule, AppointmentsModule],
   controllers: [AppController],
   providers: [AppService],
 })
