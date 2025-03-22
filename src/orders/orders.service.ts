@@ -6,11 +6,11 @@ export class OrdersService {
     constructor(private prisma: PrismaService) { }
 
     async createOrder(data: { customerId: string, totalAmount: number }) {
-        return this.prisma.orders.create({ data })
+        return this.prisma.order.create({ data })
     }
 
     async getAllOrders() {
-        return this.prisma.orders.findMany({ include: { customer: true } })
+        return this.prisma.order.findMany({ include: { customer: true } })
     }
 
 }
