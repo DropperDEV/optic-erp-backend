@@ -59,5 +59,16 @@ model Invoice {
   status    String   @default("unpaid")
   createdAt DateTime @default(now())
 
-  order Order @relation(fields: [orderId], references: [id])
+  order   Order     @relation(fields: [orderId], references: [id])
+  Payment Payment[]
+}
+
+model Payment {
+  id        String   @id @default(uuid())
+  invoiceId String
+  amount    Decimal
+  method    String
+  createdAt DateTime @default(now())
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id])
 }
