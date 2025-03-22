@@ -20,6 +20,7 @@ model Customer {
   phone     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Orders    Orders[]
 }
 
 model User {
@@ -39,4 +40,13 @@ model Product {
   createdAt   DateTime @default(now())
 }
 
+model Orders {
+  id          String   @id @default(uuid())
+  customerId  String
+  totalAmount Decimal
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+
+  customer Customer @relation(fields: [customerId], references: [id])
+}
 
