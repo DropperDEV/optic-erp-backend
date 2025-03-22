@@ -12,6 +12,6 @@ export class CustomersController {
 
     @Get()
     findAll() {
-        return this.customerService.getCustomer()
+        return this.customerService.getAllCustomer()
     }
 }

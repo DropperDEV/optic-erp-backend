@@ -10,7 +10,7 @@ export class CustomersService {
         return this.prisma.customer.create({ data })
     }
 
-    async getCustomer() {
+    async getAllCustomer() {
         return this.prisma.customer.findMany();
     }
 }
